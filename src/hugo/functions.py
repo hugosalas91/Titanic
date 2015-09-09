@@ -263,6 +263,32 @@ def exploratoryAnalysis(data):
     graphic.plot(kind="bar")
     plt.title("Proporción de mujeres supervivientes al naufragio del Titanic")
     plt.show()
+<<<<<<< HEAD
+=======
+    
+    """
+    Vamos a ver el numero de personas en el titanic con x familiares
+    """
+    data['FamilySize'] = data['SibSp'] + data['Parch']
+    
+    fig, axes = plt.subplots(nrows=2, ncols=2)
+    ax0, ax1, ax2, ax3 = axes.flat
+    
+    graphic = pd.DataFrame()
+    out = pd.cut(data[(data["Gender"] == 0) & (data["Pclass"] == 1)]["AgeFill"], bins)
+    counts = pd.value_counts(out).sort_index()
+    graphic["1ª clase"] = counts.values
+    graphic.index = counts.index
+    out = pd.cut(data[(data["Gender"] == 0) & (data["Pclass"] == 2)]["AgeFill"], bins)
+    counts = pd.value_counts(out).sort_index()
+    graphic["2ª clase"] = counts.values
+    out = pd.cut(data[(data["Gender"] == 0) & (data["Pclass"] == 3)]["AgeFill"], bins)
+    counts = pd.value_counts(out).sort_index()
+    graphic["3ª clase"] = counts.values
+    graphic.plot(kind="bar")
+    ax0.title("Número de mujeres a bordo del Titanic")
+    plt.show()
+>>>>>>> hugo
 	
 
 ##################################################################################
