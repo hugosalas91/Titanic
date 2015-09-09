@@ -101,6 +101,8 @@ def exploratoryAnalysis(data):
     """
     En primer lugar voy a graficar el numero de supervivientes
     """
+    print(data.head(5))
+    
     data["Survived"].value_counts().plot(kind="bar", alpha=0.55)
     plt.xticks(data["Survived"].unique(), ["Fallecidos", "Supervivientes"], size = 'medium', color = 'black', rotation = 0)
     plt.title("Víctimas del naufragio del Titanic")
